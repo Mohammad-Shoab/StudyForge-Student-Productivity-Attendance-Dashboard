@@ -1,0 +1,90 @@
+:root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --primary: #4f46e5;
+    --primary-soft: rgba(79, 70, 229, 0.1);
+    --success-soft: rgba(16, 185, 129, 0.12);
+    --secondary-soft: rgba(100, 116, 139, 0.12);
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius: 14px;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+#topbar {
+    background: linear-gradient(90deg, #0f172a, #111827);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.page-bg {
+    min-height: 100vh;
+}
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: var(--card);
+}
+
+.gradient-card {
+    background: radial-gradient(120% 120% at 0% 0%, #eef2ff 0%, #ffffff 50%, #f5f7ff 100%);
+}
+
+.card .card-title { font-weight: 700; }
+
+.badge { font-size: 0.82rem; border-radius: 999px; }
+.bg-soft-primary { background: var(--primary-soft); }
+.bg-soft-success { background: var(--success-soft); }
+.bg-soft-secondary { background: var(--secondary-soft); }
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-ghost {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-control, .form-select { border-radius: 10px; }
+
+.table td, .table th { vertical-align: middle; }
+.progress { background-color: #edf2f7; height: 8px; border-radius: 999px; }
+.progress-bar { background-color: var(--primary); }
+
+.flash-container {
+    position: fixed;
+    top: 72px;
+    right: 16px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert { border-radius: 12px; box-shadow: var(--shadow); }
+
+.hero h2 { letter-spacing: -0.02em; }
+.hero p { color: var(--muted); }
+
+@media (max-width: 768px) {
+    .btn { width: 100%; }
+    .flash-container { left: 12px; right: 12px; top: 76px; }
+}
