@@ -7,10 +7,11 @@ import secrets
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")
+is_production = os.environ.get("ENVIRONMENT") == "production"
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
-    SESSION_COOKIE_SECURE=False,  # set True when behind HTTPS
+    SESSION_COOKIE_SECURE=is_production,  # True in production (HTTPS)
 )
 
 
@@ -320,4 +321,5 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
